@@ -1,44 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>rachel riley going hard</title>
+	<title>rachel riley going hard</title>
+	<meta charset="UTF-8">
+	<link rel='stylesheet' href='./crackdown.css' />
 </head>
 <body>
+<div class='content'>
+	<h1>Like countdown but dumb</h1>
+	<p>Click start to start. Use the buttons to change Current number into Goal number. Fewest clicks wins. Cheating is easy so don't do it.</p>
+	<div class='flex'>
+		<div class='buttons'>
+			<button onclick='startGame(); updateGoals();'>start</button>
 
-<h1>Like countdown but dumb</h1>
-<p>Click start to start. Use the buttons to change Current number into Goal number. Fewest clicks wins. Cheating is easy so don't do it.</p>
-<button onclick='startGame(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("goalNum").innerHTML = goalNum; document.getElementById("tempNumber").innerHTML = tempNum;'>start</button>
-<p>everything relevant is floored</p>
-<button onclick='addOne(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n + 1</button>
-<button onclick='subOne(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n - 1</button>
-<br>
-<button onclick='minusSqrt(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n - square root of n</button>
-<button onclick='cubeRoot(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>cube root of n</button>
-<br>
-<button onclick='saveTemp(); document.getElementById("tempNumber").innerHTML = tempNum; document.getElementById("clickers").innerHTML = clicks;'>save temp number</button>
-<br>
-<button onclick='nTimesTemp(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n * temp</button>
-<button onclick='nModTempsSquared(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n mod temp squared</button>
+			<p>everything relevant is floored</p>
 
-<ul style="list-style-type:none;">
-	<li>Current number</li>
-	<li id="currentNumber">0</li>
-	<br>
-	<li>Temporary number</li>
-	<li id="tempNumber">0</li>
-	<br>
-	<li>Goal number</li>
-	<li id="goalNum">0</li>
-	<br>
-	<li>Clicks</li>
-	<li id="clickers">0</li>
-</ul>
+			<div class='buttonGroup'>
+				<button onclick='addOne(); updateCurrentNumber();'>n + 1</button>
+				<button onclick='subOne(); updateCurrentNumber();'>n - 1</button>
+			</div>
+
+			<div class='buttonGroup'>
+				<button onclick='minusSqrt(); updateCurrentNumber();'>n - √n</button>
+				<button onclick='cubeRoot(); updateCurrentNumber();'>³√n</button>
+			</div>
+			
+			<button onclick='saveTemp(); updateTempNumber();'>save temp number</button>
+
+			<div class='buttonGroup'>
+				<button onclick='nTimesTemp(); updateCurrentNumber();'>n * temp</button>
+				<button onclick='nModTempsSquared(); updateCurrentNumber();'>n % temp²</button>
+			</div>
+		</div>
+		<ul class='numbers' style="list-style-type:none;">
+			<li>Current number</li>
+			<li class='number' id="currentNumber">0</li>
+			<br>
+			<li>Temporary number</li>
+			<li class='number' id="tempNumber">0</li>
+			<br>
+			<li>Goal number</li>
+			<li class='number' id="goalNum">0</li>
+			<br>
+			<li>Clicks</li>
+			<li class='number' id="clickers">0</li>
+		</ul>
+	</div>
+</div>
 
 <script>
 var currentNum = 0;
 var tempNum;
 var goalNum;
 var clicks = 0;
+
+function updateClicks() {
+	document.getElementById("clickers").innerHTML = clicks;
+}
+
+function updateCurrentNumber() {
+	document.getElementById("currentNumber").innerHTML = currentNum;
+	updateClicks();
+}
+
+function updateTempNumber() {
+	document.getElementById("tempNumber").innerHTML = tempNum;
+	updateClicks();
+}
+
+function updateGoals() {
+	document.getElementById("currentNumber").innerHTML = currentNum;
+	document.getElementById("goalNum").innerHTML = goalNum;
+	document.getElementById("tempNumber").innerHTML = tempNum;
+}
+
 function startGame() {
 	currentNum = Math.floor(Math.random() * 100) + 1;
 	goalNum = Math.floor(Math.random() * 1000) + 1;
