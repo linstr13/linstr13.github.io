@@ -1,3 +1,56 @@
 body {
   font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0px;
+}
+
+button {
+  padding: 8px 12px;
+  background: #eee;
+  border: none;
+  margin: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ddd;
+}
+
+.content {
+  width: calc(100vw - 32px);
+  max-width: 400px;
+}
+
+.flex {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonGroup {
+  display: flex;
+}
+
+.buttonGroup button {
+  flex: 1;
+}
+
+li {
+  font-weight: bold;
+}
+
+.number {
+  color: #333;
+  font-weight: normal;
 }
