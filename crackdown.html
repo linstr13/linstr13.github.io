@@ -49,43 +49,43 @@ function startGame() {
 
 function cubeRoot() {
 	clicks = clicks + 1;
-	currentNum = Math.floor(Math.cbrt(currentNum));
+	currentNum = safeNum(Math.floor(Math.cbrt(currentNum)));
 	winCon();
 }
 
 function minusSqrt() {
 	clicks = clicks + 1;
-	currentNum = Math.floor(currentNum - Math.sqrt(currentNum));
+	currentNum = safeNum(Math.floor(currentNum - Math.sqrt(currentNum)));
 	winCon();
 }
 
 function subOne() {
 	clicks = clicks + 1;
-	currentNum = currentNum - 1;
+	currentNum = safeNum(currentNum - 1);
 	winCon();
 }
 
 function addOne() {
 	clicks = clicks + 1;
-	currentNum = currentNum + 1;
+	currentNum = safeNum(currentNum + 1);
 	winCon();
 }
 
 function saveTemp() {
 	clicks = clicks + 1;
-	tempNum = currentNum;
+	tempNum = safeNum(currentNum);
 	winCon();
 }
 
 function nTimesTemp() {
 	clicks = clicks + 1;
-	currentNum = currentNum * tempNum;
+	currentNum = safeNum(currentNum * tempNum);
 	winCon();
 }
 
 function nModTempsSquared() {
 	clicks = clicks + 1;
-	currentNum = (currentNum % tempNum)**2;
+	currentNum = safeNum((currentNum % tempNum)**2);
 	winCon();
 }
 
@@ -94,6 +94,8 @@ function winCon() {
 		window.alert("You win with " + clicks + " clicks");
 	} 
 }
+	
+function safeNum(a) { return isNaN(a) ? 0 : a }
 
 </script>
 </body>
