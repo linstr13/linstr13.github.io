@@ -9,16 +9,16 @@
 <p>Click start to start. Use the buttons to change Current number into Goal number. Fewest clicks wins. Cheating is easy so don't do it.</p>
 <button onclick='startGame(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("goalNum").innerHTML = goalNum; document.getElementById("tempNumber").innerHTML = tempNum;'>start</button>
 <p>everything relevant is floored</p>
-<button onclick='addOne(); document.getElementById("currentNumber").innerHTML = currentNum;'>n + 1</button>
-<button onclick='subOne(); document.getElementById("currentNumber").innerHTML = currentNum;'>n - 1</button>
+<button onclick='addOne(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n + 1</button>
+<button onclick='subOne(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n - 1</button>
 <br>
-<button onclick='minusSqrt(); document.getElementById("currentNumber").innerHTML = currentNum;'>n - square root of n</button>
-<button onclick='cubeRoot(); document.getElementById("currentNumber").innerHTML = currentNum;'>cube root of n</button>
+<button onclick='minusSqrt(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n - square root of n</button>
+<button onclick='cubeRoot(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>cube root of n</button>
 <br>
-<button onclick='saveTemp(); document.getElementById("tempNumber").innerHTML = tempNum;'>save temp number</button>
+<button onclick='saveTemp(); document.getElementById("tempNumber").innerHTML = tempNum; document.getElementById("clickers").innerHTML = clicks;'>save temp number</button>
 <br>
-<button onclick='nTimesTemp(); document.getElementById("currentNumber").innerHTML = currentNum;'>n * temp</button>
-<button onclick='nModTempsSquared(); document.getElementById("currentNumber").innerHTML = currentNum;'>n mod temp squared</button>
+<button onclick='nTimesTemp(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n * temp</button>
+<button onclick='nModTempsSquared(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("clickers").innerHTML = clicks;'>n mod temp squared</button>
 
 <ul style="list-style-type:none;">
 	<li>Current number</li>
