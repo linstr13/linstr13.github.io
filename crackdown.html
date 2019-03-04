@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>rachel riley going hard</title>
+</head>
+<body>
+
+<h1>Like countdown but dumb</h1>
+<p>Click start to start. Use the buttons to change Current number into Goal number. Fewest clicks wins. Cheating is easy so don't do it.</p>
+<button onclick='startGame(); document.getElementById("currentNumber").innerHTML = currentNum; document.getElementById("goalNum").innerHTML = goalNum; document.getElementById("tempNumber").innerHTML = tempNum;'>start</button>
+<p>everything relevant is floored</p>
+<button onclick='addOne(); document.getElementById("currentNumber").innerHTML = currentNum;'>n + 1</button>
+<button onclick='subOne(); document.getElementById("currentNumber").innerHTML = currentNum;'>n - 1</button>
+<br>
+<button onclick='minusSqrt(); document.getElementById("currentNumber").innerHTML = currentNum;'>n - square root of n</button>
+<button onclick='cubeRoot(); document.getElementById("currentNumber").innerHTML = currentNum;'>cube root of n</button>
+<br>
+<button onclick='saveTemp(); document.getElementById("tempNumber").innerHTML = tempNum;'>save temp number</button>
+<br>
+<button onclick='nTimesTemp(); document.getElementById("currentNumber").innerHTML = currentNum;'>n * temp</button>
+<button onclick='nModTempsSquared(); document.getElementById("currentNumber").innerHTML = currentNum;'>n mod temp squared</button>
+
+<ul style="list-style-type:none;">
+	<li>Current number</li>
+	<li id="currentNumber">0</li>
+	<br>
+	<li>Temporary number</li>
+	<li id="tempNumber">0</li>
+	<br>
+	<li>Goal number</li>
+	<li id="goalNum">0</li>
+	<br>
+	<li>Clicks</li>
+	<li id="clickers">0</li>
+</ul>
+
+<script>
+var currentNum = 0;
+var tempNum;
+var goalNum;
+var clicks = 0;
+function startGame() {
+	currentNum = Math.floor(Math.random() * 100) + 1;
+	goalNum = Math.floor(Math.random() * 1000) + 1;
+	tempNum = 0;
+	clicks = 0;
+	winCon();
+}
+
+function cubeRoot() {
+	clicks = clicks + 1;
+	currentNum = Math.floor(Math.cbrt(currentNum));
+	winCon();
+}
+
+function minusSqrt() {
+	clicks = clicks + 1;
+	currentNum = Math.floor(currentNum - Math.sqrt(currentNum));
+	winCon();
+}
+
+function subOne() {
+	clicks = clicks + 1;
+	currentNum = currentNum - 1;
+	winCon();
+}
+
+function addOne() {
+	clicks = clicks + 1;
+	currentNum = currentNum + 1;
+	winCon();
+}
+
+function saveTemp() {
+	clicks = clicks + 1;
+	tempNum = currentNum;
+	winCon();
+}
+
+function nTimesTemp() {
+	clicks = clicks + 1;
+	currentNum = currentNum * tempNum;
+	winCon();
+}
+
+function nModTempsSquared() {
+	clicks = clicks + 1;
+	currentNum = (currentNum % tempNum)**2;
+	winCon();
+}
+
+function winCon() {
+	if (currentNum == goalNum) {
+		window.alert("You win with " + clicks + " clicks");
+	} 
+}
+
+</script>
+</body>
+</html>
